@@ -1,0 +1,6 @@
+jupyter==1.0.0
+numpy==1.15.2
+matplotlib==3.0.0
+chgender==0.0.2
+pandas==0.23.4
+scikit-learn==0.20.0
