@@ -1,0 +1,10 @@
+jupyter == 1.0.0
+numpy == 1.131
+matplotlib == 2.0.2
+chgender == 0.0.2
+pandas == 0.23.4
+scikit-leaern == 0.20.0
+sqlite3 == 2.6.0
+chicksexer == 0.2.2
+
+
