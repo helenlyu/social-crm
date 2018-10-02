@@ -1,0 +1,35 @@
+Amazon Rekognition can detect face, including gender, age, mood, of a photo. The following steps is a quick instruction on how to detect face in your Python. If you only have URL, use Rekognition Console and input URL. You will get same result from following steps and code.
+1. Install boto3.
+pip install boto3
+pip3 install boto3
+2. Install AWS CLI and configure credentials file in AWS account by creating IAM user in AWS account.
+pip install awscli
+pip3 install awscli
+Specific steps are on this website.
+https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/setting-up.html
+3. In Amazon S3 website, create bucket and upload photo file in the bucket. Or you can upload photo from your Python command.
+4. Detect the photo uploaded using boto3 package and json package.
+
+
+`
+import boto3
+import json
+s3=boto3.resource('s3')
+for bucket in s3.buckets.all():
+      print(bucket.name)
+data = open('file name', 'rb')
+s3.Bucket('bucket name').put_object(Key='test.jpg', Body=data)
+if ___name___ == "__main__":
+        photo='file name'
+        bucket='bucket name'
+        client=boto3.client('rekognition')
+
+        response = client.detect_faces(Image={'S3Object':{'Bucket':bucket,'Name':photo}},Attributes=['ALL'])
+
+        print('Detected faces for ' + photo)    
+        for faceDetail in response['FaceDetails']:
+              print('The detected face is between ' + str(faceDetail['AgeRange']['Low']) 
+              + ' and ' + str(faceDetail['AgeRange']['High']) + ' years old')
+              print('Here are the other attributes:')
+              `print(json.dumps(faceDetail,` indent=4, sort_keys=True))
+`
