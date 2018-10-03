@@ -5,14 +5,22 @@ Amazon Rekognition is a platform for AWS users to detect the content of image. Y
 If you have image file on your local device, follow the steps. 
 1. Install `boto3`
 -----
+Python2:
 ```
 pip install boto3
+```
+Python3: 
+```
 pip3 install boto3
 ```
 2. Install AWS CLI and configure credentials file in AWS account by creating IAM user in AWS account.
 --------
+Python2
 ```
 pip install awscli
+```
+Python3
+```
 pip3 install awscli
 ```
 3. Create bucket and upload photo
