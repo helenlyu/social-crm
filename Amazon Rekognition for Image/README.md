@@ -61,5 +61,6 @@ if ___name___ == "__main__":
 
 ```
 
+
 References:
 https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/setting-up.html
