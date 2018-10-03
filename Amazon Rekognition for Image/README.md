@@ -35,14 +35,31 @@ s3 = boto3.resource('s3')
 for bucket in s3.buckets.all():
     print(bucket.name)
 ```
-(2) upload file in the bucket
+(2) upload file in the bucket you want. For example, you would like to upload a file named test.jpg in the created bucket named my-bucket: 
 ```
-data = open('file name', 'rb')
-s3.Bucket('bucket name').put_object(Key='test.jpg', Body=data)
+data = open('test.jpg', 'rb')
+s3.Bucket('my-bucket').put_object(Key='test.jpg', Body=data)
 ```
 4. Detect the photo uploaded using `boto3` package and `json` package.
 ------
+```
+import json
+if ___name___ == "__main__":
+        photo = 'test.jpg'
+        bucket = 'my-bucket'
+        client = boto3.client('rekognition')
 
+        response = client.detect_faces(Image={'S3Object': {'Bucket': bucket, 'Name': photo}}, Attributes=['ALL'])
+
+        print('Detected faces for ' + photo)  
+        for faceDetail in response['FaceDetails']:
+            print('The detected face is between ' + str(faceDetail['AgeRange']['Low'])
+                  + ' and ' + str(faceDetail['AgeRange']['High']) + ' years old')
+            print('Here are the other attributes：')
+            print(json.dumps(faceDetail, indent=4, sort_keys=True))
+
+
+```
 
 References:
 https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/setting-up.html
