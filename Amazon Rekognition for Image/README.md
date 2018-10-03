@@ -19,6 +19,7 @@ pip3 install awscli
 -------
 Creat bucket on Amazon S3 website first.
 You can upload a file in the bucket on Amazon S3 website. Or you can upload a file by using code.
+
 (1) print out bucket name
 ```
 import boto3
