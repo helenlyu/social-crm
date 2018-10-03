@@ -1,7 +1,9 @@
 Amazon Rekognition is a platform for AWS users to detect the content of image. You can use it to detect face, enviroment, etc. If you have URL of an image, use Rekognition Console and follow the instruction. If you have image file on your local device, follow the steps. 
 1. Install boto3 
-···pip install boto3
-pip3 install boto3···
+···
+pip install boto3
+pip3 install boto3
+···
 2. Install AWS CLI and configure credentials file in AWS account by creating IAM user in AWS account.
 pip install awscli
 pip3 install awscli
